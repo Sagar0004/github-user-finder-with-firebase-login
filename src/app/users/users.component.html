@@ -1,0 +1,33 @@
+<app-newheader></app-newheader>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center">
+        <div class="card">
+            <div class="card-header bg-white">
+                LOGIN
+            </div>
+            <div class="card-body shadow">
+                <div class="row m-2 text-center">
+                    <div class="col-md-4">USERNAME :</div>
+                    <div class="col-md-8">
+                        <input type="text" [(ngModel)]="txtusername" class="form-control">
+                    </div>
+                </div>
+                <div class="row m-2 text-center">
+                    <div class="col-md-4">PASSWORD :</div>
+                    <div class="col-md-8">
+                        <input type="password" [(ngModel)]="txtpassword" class="form-control">
+                    </div>
+                </div>
+                <div class="row m-2 text-center">
+                    <div class="col-md-12">
+                        <input type="button" value="Login" (click)="login()" class="btn btn-primary btn-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="text-primary">
+            <label>{{msg}}</label>
+        </h1>
+    </div>
+</div>

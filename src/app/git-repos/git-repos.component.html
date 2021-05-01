@@ -1,0 +1,23 @@
+<ul class="list-group">
+  <div style="margin-left:150px" >
+    <div class="row">
+      <div class="col-md-6 mt-2" *ngFor="let r of GitRepos">
+        <li class="list-group-item" >
+          <div style="padding: 5px;font-weight: 600;height:100px">
+            <a
+              href="{{r.html_url}}" target="_blank"
+              class="text-bold flex-auto min-width-0"
+            >
+              <span class="repo" title="fetch-api-with-javascript"
+                >{{r.name}}</span
+              >
+            </a>
+            <p style="font-size: 12px;margin-bottom: 16px;margin-top: 8px">
+              {{r.description}}
+            </p>
+          </div>
+        </li>
+      </div>
+    </div>
+  </div>
+</ul>

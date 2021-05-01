@@ -1,0 +1,13 @@
+<app-newheader></app-newheader>
+<div class="container mt-4">
+    <div class="row" *ngIf="!isLoggedin">
+        <div class="col-12">
+            <div class="alert alert-warning">
+                Please login or sign up to find github users
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <a [routerLink]="['/users']" class="mx-2">Click here</a> to find github users
+    </div>
+</div>

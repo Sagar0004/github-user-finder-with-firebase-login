@@ -1,0 +1,16 @@
+<app-newheader></app-newheader>
+<div class="row m-5">
+  <input type="text" [(ngModel)]="login" class="form-control  col-md-3 " />
+  <button (click)="getGitUsers()" class="btn btn-info col-md-1 ml-2">
+    Click
+  </button>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <app-git-user-details [GitUsers]="GitUsers"> </app-git-user-details>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-7">
+    <app-git-repos [GitRepos]="GitRepos"></app-git-repos>
+  </div>
+</div>
