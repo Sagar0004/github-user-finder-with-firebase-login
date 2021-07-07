@@ -10,26 +10,26 @@
                 </span>
 
                 <div class="wrap-input1 validate-input">
-                    <input class="input1" type="text"   #email placeholder="Email">
+                    <input class="input1" type="text"  [(ngModel)]="email"  name="email" placeholder="Email">
                     <span class="shadow-input1"></span>
                 </div>
 
                 <div class="wrap-input1 validate-input">
-                    <input class="input1" type="password"  #password placeholder="Password">
+                    <input class="input1" type="password" [(ngModel)]="password"  name="password" placeholder="Password">
                     <span class="shadow-input1"></span>
                 </div>
 
 
                 <div class="container-contact1-form-btn">
-                    <button class="contact1-form-btn input1" (click)="SignUp(email.value,password.value)">
+                    <button class="contact1-form-btn input1" (click)="SignUp()">
                         <span>
                             Sign Up
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                         </span>
                     </button>
                 </div>
-                <div class="container-contact1-form-btn" style="padding-top:20px">
-                    <a class="contact1-form-btn input1"  routerLink=''>
+                <div *ngIf="islogeedin" class="container-contact1-form-btn" style="padding-top:20px">
+                    <a class="contact1-form-btn input1 text-white"  [routerLink]="['/users']">
                         <span>
                              
                             Sign In

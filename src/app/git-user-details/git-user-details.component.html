@@ -1,46 +1,53 @@
-<div style="margin-left:150px" *ngFor="let u of GitUsers">
-        <img
-          style="height:auto;width:300px;border-radius: 50%;"
-          alt="Avatar"
-          class="avatar avatar-user width-full border color-bg-primary"
-          src="{{ u.avatar_url }}"
-        />
-        <h1 class="vcard-names" style="margin-top:15px">
-          <span
-            class="p-name vcard-fullname d-block overflow-hidden"
-            style="font-size: 26px;
-            line-height: 1.25"
-            itemprop="name"
+<div class="card-detail" *ngFor="let u of GitUsers">
+  <div class="img-container">
+    <img alt="Avatar" src="{{ u.avatar_url }}" />
+  </div>
+  <div class="card-names">
+    <span class="name">{{ u.name }}</span>
+    <span class="username">{{ u.login }}</span>
+  </div>
+  <div class="profile">
+    <div class="profile-bio mb-3">
+      <span>{{ u.bio }}</span>
+    </div>
+    <div class="profile-followers">
+      <div class="flex-order-1 flex-md-order-none mt-2 mt-md-0">
+        <div class="mb-3">
+          <a
+            class="Link--secondary no-underline no-wrap"
+            href="https://github.com/yashvantvala?tab=followers"
+            target="blank"
           >
-            {{ u.name }}
-          </span>
-          <span
-            class="p-nickname vcard-username d-block"
-            style="font-weight: 300;font-size: 20px"
-            itemprop="additionalName"
+            <span class="text-bold color-text-primary">{{u.followers}}</span>
+            followers
+          </a>
+          ·
+          <a
+            class="Link--secondary no-underline no-wrap"
+            href="https://github.com/yashvantvala?tab=following"
+            target="blank"
           >
-            {{ u.login }}
-          </span>
-        </h1>
-        <a class="btn btn-block btn-light mt-3">Follow</a>
-        <div class="row">
-          <span style="font-size:16px" class="mb-3">{{ u.bio }}</span>
-          <i class="fa fa-user mr-1" aria-hidden="true"></i
-          ><span class="text-bold color-text-primary mr-1" style="font-weight: 600">{{
-            u.followers
-          }}</span
-          >followers<span class="ml-2 mr-1" style="font-weight: 600">{{
-            u.following
-          }}</span
-          >following
+            <span class="text-bold color-text-primary">{{u.following}}</span>
+            following
+          </a>
+          ·
+          <a
+            class="Link--secondary no-underline no-wrap"
+            href="https://github.com/yashvantvala?tab=stars"
+          >
+           
+            <span class="text-bold color-text-primary"></span>
+          </a>
         </div>
-        <div style="margin-top:16px">
-          <ul style="list-style-type: none;padding-left: 0">
-            <li><i class="fa fa-map-marker mr-1"></i>{{u.location}}</li>
-            <li><i class="fas fa-link mr-1"></i>{{u.blog}}</li>
-            <li><i class="fab fa-twitter mr-1"></i>{{u.twitter_username}}</li>
-          </ul>
-        </div>
-        <span style="margin-top:8px;font-size: 14px"> Block or Report</span>
       </div>
-      
+
+    </div>
+    <div class="profile-details">
+      <ul>
+        <li><i class="fa fa-map-marker mr-2"></i>{{u.location}}</li>
+        <li><i class="fa fa-link mr-1"></i><a href="{{ u.blog }}" target="blank">{{ u.blog }}</a></li>
+        <li><i class="fa fa-twitter mr-1"></i><a href="https://twitter.com/{{ u.twitter_username }}" target="blank">@{{u.twitter_username}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

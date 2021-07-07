@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from  "@angular/fire/auth";
 import { Router } from "@angular/router";
-
 @Injectable({
   providedIn: 'root'
 })
@@ -40,10 +39,6 @@ export class FirebaseService {
         this.err = error.code;
       })
   }
-  Isloggedin()
-  {
-    
-  }
   logout()
   {
     this.firebaseAuth.signOut().then(()=>{
@@ -51,5 +46,7 @@ export class FirebaseService {
     })
     localStorage.removeItem('user');
     this.isloggedin = false;
-  }
+  } 
+
+
 }

@@ -1,0 +1,9 @@
+ul{
+    margin:20px;
+    margin-left: 0%;
+}
+@media only screen and (max-width: 600px) {
+  ul{
+      margin: 20px;
+  }
+}

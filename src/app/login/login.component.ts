@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../firebase.service';
 import { Router } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
-
+import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,9 +12,9 @@ export class LoginComponent implements OnInit {
 
   islogeedin = false;
   label = "";
-  
-
-  constructor(public firebaseService: FirebaseService,private router: Router,private toastr: ToastrService) { }
+  email:string
+  password:string
+  constructor(public auth: AngularFireAuth,public firebaseService: FirebaseService,private router: Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('user'))
@@ -27,12 +27,14 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
       }  
   }
-  async SignIn(email: string, password: string) {
-    await this.firebaseService.signin(email, password)
+  async SignIn() {
+    await this.firebaseService.signin(this.email, this.password)
     if (this.firebaseService.isloggedin)
     {
       this.islogeedin = true;
       this.router.navigate(['']);
+      this.email = '';
+      this.password = '';
     }
     else
     {
