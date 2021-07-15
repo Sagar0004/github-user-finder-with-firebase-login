@@ -23,9 +23,10 @@ export class GitUsersComponent implements OnInit {
     this._gitUsers.getGitRepose(this.login).subscribe(res => {
       this.GitRepos = this.GitRepos.concat(res);
     });
-    this.GitUsers.splice(0,1); 
-    this.GitRepos.splice(0,1);
+    this.GitUsers.splice(0,this.GitUsers.length); 
+    this.GitRepos.splice(0,this.GitRepos.length);
     this.login = "";
+    this.error = "";
   };
 
 
