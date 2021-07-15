@@ -36,7 +36,7 @@ export class FirebaseService {
       localStorage.setItem('user',JSON.stringify(res.user))
     }).catch(
       error => {
-        this.err = error.code;
+        this.err = error.message;
       })
   }
   logout()

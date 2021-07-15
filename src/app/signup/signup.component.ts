@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   }
   async SignUp() {
     await this.firebaseService.signup(this.email, this.password)
-    if (!this.firebaseService.isloggedin) {
+    if (!this.firebaseService.isloggedin && !this.firebaseService.err) {
       this.islogeedin = true;
       this.toastr.success(this.label, 'signup successfull', {
         positionClass: 'toast-top-right'
@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
     else {
       this.islogeedin = false;
       this.label = this.firebaseService.err;
-      this.toastr.error(this.label, undefined, {
+      this.toastr.error('', this.firebaseService.err, {
         positionClass: 'toast-top-right'
       });
     }
